@@ -14,8 +14,8 @@ public class ImageLoader {
     private  static final Map<String, BufferedImage> cache= new HashMap<String,BufferedImage>();
 
     public static final BufferedImage getImage(String fullpath) throws IOException {
-        int targetWidth=1000;
-        int targetHeight=2000;
+        int targetWidth=100;
+        int targetHeight=200;
 
         BufferedImage img = cache.get(fullpath);
         if(img!=null){

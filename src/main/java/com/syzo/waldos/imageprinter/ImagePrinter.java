@@ -52,9 +52,9 @@ public class ImagePrinter {
             ImageIO.write(combined, "PNG", new File(path, name));
 
             // create a blank, RGB, same width and height, and a white background
-            BufferedImage newBufferedImage = new BufferedImage(combined.getWidth()/10,
-                    combined.getHeight()/10, BufferedImage.TYPE_INT_RGB);
-            newBufferedImage.createGraphics().drawImage(combined, 0, 0,combined.getWidth()/10,combined.getHeight()/10, Color.WHITE, null);
+            BufferedImage newBufferedImage = new BufferedImage(combined.getWidth(),
+                    combined.getHeight(), BufferedImage.TYPE_INT_RGB);
+            newBufferedImage.createGraphics().drawImage(combined, 0, 0,combined.getWidth(),combined.getHeight(), Color.WHITE, null);
 
             // write to jpeg file
             ImageIO.write(newBufferedImage, "jpg", new File(path,"output.jpg"));

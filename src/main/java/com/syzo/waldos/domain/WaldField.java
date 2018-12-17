@@ -11,7 +11,7 @@ public class WaldField {
     protected int maxSpread=1;
     protected int width;
     protected int cursor=0;
-    protected  int rowHeigh=1100;
+    protected  int rowHeigh=110;
 
     protected boolean full=false;
 
@@ -99,7 +99,7 @@ public class WaldField {
 
         //TODO: LOGIC TO GENERATE SEPARATION RANDOMLY
 
-        return -400;
+        return -40;
 
     }
 
