@@ -99,7 +99,7 @@ public class WaldField {
 
         //TODO: LOGIC TO GENERATE SEPARATION RANDOMLY
 
-        return -40;
+        return -50;
 
     }
 

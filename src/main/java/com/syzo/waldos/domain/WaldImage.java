@@ -69,6 +69,16 @@ public class WaldImage implements Serializable {
     protected int positionx;
     protected int positiony;
 
+    public boolean isIswaldo() {
+        return iswaldo;
+    }
+
+    public void setIswaldo(boolean iswaldo) {
+        this.iswaldo = iswaldo;
+    }
+
+    protected boolean iswaldo;
+
     @Override
     public String toString() {
         return "WaldImage{" +

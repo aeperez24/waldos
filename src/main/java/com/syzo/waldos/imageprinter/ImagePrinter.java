@@ -1,6 +1,7 @@
 package com.syzo.waldos.imageprinter;
 
 import com.syzo.waldos.domain.WaldField;
+import com.syzo.waldos.domain.WaldImage;
 import com.syzo.waldos.imagereader.ImageLoader;
 
 import javax.imageio.ImageIO;
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ImagePrinter {
 
@@ -27,11 +29,24 @@ public class ImagePrinter {
 
         BufferedImage combined = new BufferedImage(waldField.getFieldWidht(), waldField.getFieldHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics graphics=combined.getGraphics();
+        AtomicReference<WaldImage> reference=new AtomicReference<>();
         waldField.getListImages().stream().forEach(
                 waldImage -> {
+                    if(!waldImage.isIswaldo()){
                     BufferedImage auximg=getImage(waldImage.getPath());
+
                     if(auximg!=null){
                         graphics.drawImage(auximg,waldImage.getPositionx(),waldImage.getPositiony(),null);
+
+                    }
+
+                        if(reference.get()!=null){
+                            graphics.drawImage(getImage(reference.get().getPath()),reference.get().getPositionx(),reference.get().getPositiony(),null);
+                            reference.set(null);
+                        }
+                    }
+                    else{
+                        reference.set(waldImage);
 
                     }
 
