@@ -72,7 +72,7 @@ public class ImagePrinter {
             newBufferedImage.createGraphics().drawImage(combined, 0, 0,combined.getWidth(),combined.getHeight(), Color.WHITE, null);
 
             // write to jpeg file
-            ImageIO.write(newBufferedImage, "jpg", new File(path,"output.jpg"));
+            ImageIO.write(newBufferedImage, "jpg",  new File(path, name+".jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
